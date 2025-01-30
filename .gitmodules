@@ -1,0 +1,3 @@
+[submodule "HMS"]
+	path = HMS
+	url = https://github.com/N210030/Doctor-Appointment-System.git
