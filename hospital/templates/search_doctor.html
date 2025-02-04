@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Appointment System - Search Doctors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .search-box {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .search-box input {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+
+        .search-box button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+
+        .search-box button:hover {
+            background-color: #45a049;
+        }
+
+        .doctor-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .doctor-item {
+            background-color: #e9f5e9;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .doctor-item h3 {
+            margin: 0 0 5px 0;
+            color: #333;
+        }
+
+        .doctor-item p {
+            margin: 5px 0;
+            color: #555;
+        }
+
+        .no-results {
+            text-align: center;
+            color: #888;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search for a Doctor</h1>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Enter doctor's name or specialty...">
+            <button onclick="searchDoctor()">Search</button>
+        </div>
+
+        <ul class="doctor-list" id="doctorList">
+            <li class="doctor-item">
+                <h3>Dr. John Doe</h3>
+                <p>Specialty: Cardiologist</p>
+                <p>Location: New York, NY</p>
+            </li>
+            <li class="doctor-item">
+                <h3>Dr. Jane Smith</h3>
+                <p>Specialty: Dermatologist</p>
+                <p>Location: Los Angeles, CA</p>
+            </li>
+            <li class="doctor-item">
+                <h3>Dr. Emily Johnson</h3>
+                <p>Specialty: Pediatrician</p>
+                <p>Location: Chicago, IL</p>
+            </li>
+        </ul>
+
+        <div class="no-results" id="noResults" style="display: none;">No doctors found.</div>
+    </div>
+
+    <script>
+        function searchDoctor() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const doctors = document.querySelectorAll('.doctor-item');
+            let found = false;
+
+            doctors.forEach(doctor => {
+                const doctorText = doctor.textContent.toLowerCase();
+                if (doctorText.includes(input)) {
+                    doctor.style.display = 'block';
+                    found = true;
+                } else {
+                    doctor.style.display = 'none';
+                }
+            });
+
+            document.getElementById('noResults').style.display = found ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
