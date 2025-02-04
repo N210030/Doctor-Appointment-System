@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Appointment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .search-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .search-container h2 {
+            text-align: center;
+            color: #1e90ff;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: #1e90ff;
+            outline: none;
+        }
+
+        .search-btn {
+            width: 100%;
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .search-btn:hover {
+            background-color: #1c86ee;
+        }
+
+        .results {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <h2>Search Appointment</h2>
+        <form id="searchForm">
+            <div class="form-group">
+                <label for="patientName">Patient Name</label>
+                <input type="text" id="patientName" name="patientName" required>
+            </div>
+            <div class="form-group">
+                <label for="appointmentDate">Appointment Date</label>
+                <input type="date" id="appointmentDate" name="appointmentDate">
+            </div>
+            <button type="submit" class="search-btn">Search</button>
+        </form>
+        <div class="results" id="results"></div>
+    </div>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const patientName = document.getElementById('patientName').value;
+            const appointmentDate = document.getElementById('appointmentDate').value;
+
+            // Mock search results (replace this with actual search logic)
+            let resultMessage = `No appointments found for ${patientName}`;
+            if (patientName.toLowerCase() === "john doe" && (!appointmentDate || appointmentDate === "2025-02-05")) {
+                resultMessage = `Appointment found: John Doe on 2025-02-05 at 10:00 AM.`;
+            }
+
+            document.getElementById('results').innerText = resultMessage;
+        });
+    </script>
+</body>
+</html>
