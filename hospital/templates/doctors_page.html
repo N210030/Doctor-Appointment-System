@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        nav {
+            background: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        section {
+            padding: 20px;
+            text-align: center;
+        }
+        h1, h2, label, button {
+            display: inline-block;
+            transition: transform 0.3s ease-in-out;
+        }
+        h1:hover, h2:hover, label:hover, button:hover {
+            transform: translateY(-5px);
+        }
+        form, .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            margin: 10px auto;
+        }
+        input, select, button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 80%;
+        }
+        button {
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#appointments">Appointments</a></li>
+            <li><a href="#patients">Patients</a></li>
+            <li><a href="#search">Search</a></li>
+            <li><a href="#report">Reports</a></li>
+            <li><a href="#profile">Profile</a></li>
+        </ul>
+    </nav>
+    
+    <section id="dashboard">
+        <h1>Doctor's Dashboard</h1>
+        <div class="container">Total Appointments: 10 | New: 2 | Approved: 6 | Cancelled: 2 | Total Patients: 30</div>
+    </section>
+
+    <section id="appointments">
+        <h2>Appointments</h2>
+        <div class="container">List of patient appointments</div>
+    </section>
+
+    <section id="patients">
+        <h2>Manage Patients</h2>
+        <div class="container">Add/Update Patient Details</div>
+    </section>
+
+    <section id="search">
+        <h2>Search</h2>
+        <div class="container">
+            <input type="text" placeholder="Search Patient by Name or Mobile">
+            <input type="text" placeholder="Search Appointment by Name or Mobile">
+        </div>
+    </section>
+
+    <section id="report">
+        <h2>Reports</h2>
+        <div class="container">Generate Appointment & Patient Reports</div>
+    </section>
+
+    <section id="profile">
+        <h2>Manage Profile</h2>
+        <button onclick="changePassword()">Change Password</button>
+        <button onclick="recoverPassword()">Recover Password</button>
+    </section>
+    
+    <script src="script.js"></script>
+</body>
+</html>
